@@ -63,18 +63,21 @@ app.post('/api/v1/passwords', async (req, res) =>{
 })
 
 //Update route
-app.put('/api/v1/passwords/:id',(req, res) => {
+app.put('/api/v1/passwords/:id', async (req, res) => {
+
+      try{
+            const results = await  db.query("UPDATE passwords SET website = $1, username = $2, email = $3, password = $4 where id = $5 returning *", [req.body.website, req.body.username, req.body.email, req.body.password, req.params.id])
+            res.status(200).json({
+                  status: "success",
+                  data: {
+                        passwords: results.rows[0]
+                  }
+            })
+      } catch (err) {
+            console.log(err)
+      }
       console.log(req.params.id)
       console.log(req.body)
-      res.status(200).json({
-            status: "success",
-            data: {
-                  website: "google",
-                  username: "Tim_Jones",
-                  email: "tim@jones.com",
-                  password: "TJONES1"
-            }
-      })
 })
 
 //Delete route
