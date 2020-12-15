@@ -1,22 +1,23 @@
 const express = require('express')
 const app = express()
+const cors = require("cors")
 const PORT = process.env.PORT || 3001
 require('dotenv').config()
 const db = require('./db/index')
 
 //Middleware
+app.use(cors())
 app.use(express.json())
 
 //GET all passwords
 app.get('/api/v1/passwords', async (req, res) => {
       try{
             const results = await db.query('select * from passwords')
-            console.log(results)
             res.status(200).json({
             status: "success",
             results: results.rows.length,
             data:{
-                  paswords: results.rows,
+                  passwords: results.rows,
             }
             
       })
