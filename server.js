@@ -81,10 +81,15 @@ app.put('/api/v1/passwords/:id', async (req, res) => {
 })
 
 //Delete route
-app.delete('/api/v1/passwords/:id', (req, res) => {
-      res.status(204).json({
-            status: "success",
-      })
+app.delete('/api/v1/passwords/:id', async (req, res) => {
+      try{
+            const results = await db.query("DELETE FROM passwords where id = $1", [req.params.id])
+            res.status(204).json({
+                  status: "success",
+            })
+      } catch (err){
+            console.log(err)
+      }
 })
 
 app.listen(PORT, () => {
