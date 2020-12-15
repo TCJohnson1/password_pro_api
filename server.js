@@ -9,21 +9,25 @@ app.use(express.json())
 
 //GET all passwords
 app.get('/api/v1/passwords', async (req, res) => {
-      const results = await db.query('select * from passwords')
-      console.log(results)
-      res.status(200).json({
+      try{
+            const results = await db.query('select * from passwords')
+            console.log(results)
+            res.status(200).json({
             status: "success",
+            results: results.rows.length,
             data:{
-                  pasword: "Jim"
+                  paswords: results.rows,
             }
             
       })
+      } catch (err) {
+            console.log(err)
+      }
 })
 
 //Get one password
 app.get('/api/v1/passwords/:id', (req, res) => {
       console.log(req.params)
-
       res.status(200).json({
             status: "success",
             data: {
@@ -38,7 +42,6 @@ app.get('/api/v1/passwords/:id', (req, res) => {
 //Create Route
 app.post('/api/v1/passwords', (req, res) =>{
       console.log(req.body)
-
       res.status(201).json({
             status: "success",
             data: {
@@ -54,7 +57,6 @@ app.post('/api/v1/passwords', (req, res) =>{
 app.put('/api/v1/passwords/:id',(req, res) => {
       console.log(req.params.id)
       console.log(req.body)
-
       res.status(200).json({
             status: "success",
             data: {
