@@ -1,8 +1,8 @@
 # password_pro_api
 
 
-* [application](https://tcj-passwordpro.herokuapp.com/)
-* [front-end documentation](https://github.com/TCJohnson1/password_pro)
+* [Application](https://tcj-passwordpro.herokuapp.com/)
+* [Front-end documentation](https://github.com/TCJohnson1/password_pro)
 
 ## What is it?
 Fullstack password management app created using Postgresql, Express, React and Nodejs. This repo contains the backend server for the app.
