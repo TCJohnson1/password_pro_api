@@ -15,7 +15,7 @@ Fullstack password management app created using Postgresql, Express, React and N
 * [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 * [DOTENV](https://www.npmjs.com/package/dotenv)
 * [Express](http://expressjs.com/en/api.html)
-
+* [PG](https://www.npmjs.com/package/pg)
 
 ## Features
 * Multiple page application using react router.
