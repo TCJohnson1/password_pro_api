@@ -4,8 +4,10 @@ const cors = require("cors")
 const PORT = process.env.PORT || 3001
 require('dotenv').config()
 const db = require('./db/index')
+const auth = require('./auth')
 
 //Middleware
+// app.use('/auth', auth)
 app.use(cors())
 app.use(express.json())
 
