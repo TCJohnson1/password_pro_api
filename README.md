@@ -18,7 +18,6 @@ Fullstack password management app created using Postgresql, Express, React and N
 
 ## Features
 * Multiple page application using react router.
-* Make calls to the api in order to disply the destinations
 * Using POstgreSQL to store entries that are added on the new accounts list.
 
 
